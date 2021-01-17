@@ -20,9 +20,14 @@ namespace DevMath
 
         public bool CollidesWith(Circle circle)
         {
-            throw new NotImplementedException();
-            //if (sqrt((circle1.x - circle2.x)^2 + (circle1.y - circle2.y)^2) - radius1 - radius2 > 0) false
-            //else true
+            if (Math.Sqrt(Math.Pow((Position.x - circle.Position.x), 2) + Math.Pow((Position.y - circle.Position.y), 2)) - Radius - circle.Radius > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

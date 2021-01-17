@@ -15,17 +15,12 @@ namespace DevMath
 
         public float Magnitude
         {
-            get { throw new NotImplementedException(); }
-            //sqrt(x * x + y * y + z * z + w * w)
+            get { return (float)Math.Sqrt(x * x + y * y + z * z + w * w); }
         }
 
         public Vector4 Normalized
         {
-            get { throw new NotImplementedException(); }
-            //x /= Magnitude
-            //y /= Magnitude
-            //z /= Magnitude
-            //w /= Magnitude
+            get { return new Vector4((x /= Magnitude), (y /= Magnitude), (z /= Magnitude), (w /= Magnitude)); }
         }
 
         public Vector4(float x, float y, float z, float w)
@@ -38,68 +33,42 @@ namespace DevMath
 
         public static implicit operator Vector4(Vector3 v)
         {
-            throw new NotImplementedException();
-            //x = v.x
-            //y = v.y
-            //z = v.z
-            //w = 0
+            return new Vector4(v.x, v.y, v.z, 0f);
         }
 
         public static float Dot(Vector4 lhs, Vector4 rhs)
         {
-            throw new NotImplementedException();
-            //lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w
+            return (lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w);
         }
 
         public static Vector4 Lerp(Vector4 a, Vector4 b, float t)
         {
-            throw new NotImplementedException();
-            //a + (b - a) * t
+            return (a + (b - a) * t);
         }
 
         public static Vector4 operator +(Vector4 lhs, Vector4 rhs)
         {
-            throw new NotImplementedException();
-            //x = lhs.x + rhs.x
-            //y = lhs.y + rhs.y
-            //z = lhs.z + rhs.z
-            //w = lhs.w + rhs.w
+            return new Vector4((lhs.x + rhs.x), (lhs.y + rhs.y), (lhs.z + rhs.z), (lhs.w + rhs.w));
         }
 
         public static Vector4 operator -(Vector4 lhs, Vector4 rhs)
         {
-            throw new NotImplementedException();
-            //x = lhs.x - rhs.x
-            //y = lhs.y - rhs.y
-            //z = lhs.z - rhs.z
-            //w = lhs.w - rhs.w
+            return new Vector4((lhs.x - rhs.x), (lhs.y - rhs.y), (lhs.z - rhs.z), (lhs.w - rhs.w));
         }
 
         public static Vector4 operator -(Vector4 v)
         {
-            throw new NotImplementedException();
-            //x -= x
-            //y -= y
-            //z -= z
-            //w -= w
+            return new Vector4(-v.x, -v.y, -v.z, -v.w);
         }
 
         public static Vector4 operator *(Vector4 lhs, float scalar)
         {
-            throw new NotImplementedException();
-            //x = lhs.x * scalar
-            //y = lhs.y * scalar
-            //z = lhs.z * scalar
-            //w = lhs.w * scalar
+            return new Vector4((lhs.x * scalar), (lhs.y * scalar), (lhs.z * scalar), (lhs.w * scalar));
         }
 
         public static Vector4 operator /(Vector4 lhs, float scalar)
         {
-            throw new NotImplementedException();
-            //x = lhs.x / scalar
-            //y = lhs.y / scalar
-            //z = lhs.z / scalar
-            //w = lhs.w / scalar
+            return new Vector4((lhs.x / scalar), (lhs.y / scalar), (lhs.z / scalar), (lhs.w / scalar));
         }
     }
 }

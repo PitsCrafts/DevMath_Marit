@@ -13,20 +13,20 @@ namespace DevMath
             get; private set;
         }
 
-        public float Acceleration 
-        { 
-            get; private set; 
+        public float Acceleration
+        {
+            get; private set;
         }
 
         public float mass = 1.0f;
 
-        public float frictionCoefficient;
-        public float normalForce;
+        public float frictionCoefficient = 1.0f;
+        public float normalForce = 1.0f;
 
         public void UpdateVelocityWithForce(Vector2 forceDirection, float forceNewton, float deltaTime)
         {
-            throw new NotImplementedException();
-            //forceDirection * (forceNewton - frictionCoefficient * normalForce) * deltaTime
+            float force = forceNewton - (frictionCoefficient * normalForce);
+            Velocity = (forceDirection * (force / mass)) * deltaTime;
         }
     }
 }
